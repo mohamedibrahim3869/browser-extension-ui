@@ -23,8 +23,9 @@
 
     /* Theme Variables (Default Dark) */
     --bg-body: var(--Neutral-900);
-    --bg-card: var(--Neutral-700);
+    --bg-card: var(--Neutral-800);
     --btn: var(--Neutral-800);
+    --btn-hover: var(--Neutral-700);
     --text-primary: var(--Neutral-0);
     --border-color: var(--Neutral-200);
 }
@@ -199,6 +200,11 @@ nav {
     cursor: pointer;
     border: 1px solid;
     border-color: var(--Neutral-600);
+}
+
+#extensions-container .extension .control-btns button:hover {
+    background-color: var(--btn-hover);
+    transition: 0.3s ease-in-out;
 }
 
 #extensions-container .extension .control-btns label {
