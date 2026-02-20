@@ -28,6 +28,8 @@
     --btn-hover: var(--Neutral-700);
     --theme-switcher: var(--Neutral-700);
     --theme-switcher-hover: var(--Neutral-600);
+    --btn-border: var(--Red-500);
+    --btn-active: var(--Red-400);
     --text-primary: var(--Neutral-0);
     --border-color: var(--Neutral-600);
 }
@@ -74,6 +76,7 @@ body {
 
 #theme-btn:hover {
     background-color: var(--theme-switcher-hover);
+    border: 2px solid var(--btn-border);
 }
 
 .extensions-list {
@@ -95,9 +98,20 @@ body {
     padding: 10px;
     color: var(--text-primary);
     font-size: 1.1rem;
-    width: 80px;
+    width: 90px;
     border-radius: 30px;
     border: none;
+    cursor: pointer;
+}
+
+.extensions-list button:hover {
+    background-color: var(--btn-hover);
+    border: 2px solid var(--btn-border);
+}
+
+.extensions-list button:active {
+    background-color: var(--btn-active);
+    border: 2px solid var(--btn-border);
 }
 
 .switch {
