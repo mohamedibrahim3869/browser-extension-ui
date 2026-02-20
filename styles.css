@@ -22,7 +22,7 @@
     --Dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 
     /* Theme Variables (Default Dark) */
-    --bg-body: var(--Neutral-900);
+    --bg-body: var(--Dark-Gradient);
     --bg-card: var(--Neutral-800);
     --btn: var(--Neutral-800);
     --btn-hover: var(--Neutral-700);
@@ -35,7 +35,7 @@
 }
 
 body.light-theme {
-    --bg-body: var(--Neutral-100);
+    --bg-body: var(--Light-Gradient);
     --bg-card: var(--Neutral-0);
     --btn: var(--Neutral-100);
     --btn-hover: var(--Neutral-300);
@@ -46,11 +46,13 @@ body.light-theme {
 }
 
 body {
-    background-color: var(--bg-body);
+    background: var(--bg-body);
     color: var(--text-primary);
     transition:
         background-color 0.3s,
         color 0.3s;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .nav {
@@ -67,16 +69,17 @@ body {
 #theme-btn {
     background-color: var(--theme-switcher);
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    border: 1px solid var(--bg-card);
+    box-sizing: border-box;
+    border: 3px solid transparent;
     margin-left: auto;
     cursor: pointer;
 }
 
 #theme-btn:hover {
     background-color: var(--theme-switcher-hover);
-    border: 2px solid var(--btn-border);
+    border-color: var(--btn-border);
 }
 
 .extensions-list {
@@ -95,23 +98,31 @@ body {
 
 .extensions-list button {
     background-color: var(--btn);
+    box-sizing: border-box;
     padding: 10px;
     color: var(--text-primary);
     font-size: 1.1rem;
     width: 90px;
     border-radius: 30px;
-    border: none;
+    border: 3px solid transparent;
     cursor: pointer;
+    transition:
+        background-color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
 }
 
 .extensions-list button:hover {
     background-color: var(--btn-hover);
-    border: 2px solid var(--btn-border);
+    border-color: var(--btn-border);
 }
 
 .extensions-list button:active {
     background-color: var(--btn-active);
     border: 2px solid var(--btn-border);
+}
+
+.btn-active {
+    background-color: var(--btn-active) !important;
 }
 
 .switch {
@@ -238,20 +249,50 @@ input:checked + .slider:before {
 }
 
 #extensions-container .extension .control-btns button {
+    box-sizing: border-box;
     background-color: var(--btn);
     color: var(--text-primary);
     padding: 15px;
     border-radius: 50px;
     cursor: pointer;
-    border: 1px solid;
+    border: 3px solid;
     border-color: var(--Neutral-600);
 }
 
 #extensions-container .extension .control-btns button:hover {
+    padding: 15px;
     background-color: var(--btn-hover);
+    border: 3px solid var(--btn-border);
     transition: 0.3s ease-in-out;
 }
 
 #extensions-container .extension .control-btns label {
     padding: 5px;
+}
+
+@media (max-width: 1440px) {
+    #extensions-container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        min-height: 100vh;
+        margin: auto;
+        gap: 15px;
+    }
+
+    #extensions-container .extension {
+        min-height: 230px;
+    }
+
+    .extensions-list {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .extensions-list h1 {
+        font-size: 2rem;
+    }
 }
