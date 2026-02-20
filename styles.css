@@ -1,0 +1,206 @@
+@font-face {
+    font-family: "notosansitalic";
+    src: url("./assets/fonts/NotoSans-Italic-VariableFont_wdth\,wght.ttf");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap; /*to enable loading temporary font in case of loading delay*/
+}
+
+:root {
+    --Neutral-900: hsl(227, 75%, 14%);
+    --Neutral-800: hsl(226, 25%, 17%);
+    --Neutral-700: hsl(225, 23%, 24%);
+    --Neutral-600: hsl(226, 11%, 37%);
+    --Neutral-300: hsl(0, 0%, 78%);
+    --Neutral-200: hsl(217, 61%, 90%);
+    --Neutral-100: hsl(0, 0%, 93%);
+    --Neutral-0: hsl(200, 60%, 99%);
+    --Red-400: hsl(3, 86%, 64%);
+    --Red-500: hsl(3, 71%, 56%);
+    --Red-700: hsl(3, 77%, 44%);
+    --Light-Gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+    --Dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+    /* Theme Variables (Default Dark) */
+    --bg-body: var(--Neutral-900);
+    --bg-card: var(--Neutral-700);
+    --btn: var(--Neutral-800);
+    --text-primary: var(--Neutral-0);
+    --border-color: var(--Neutral-200);
+}
+
+body.light-theme {
+    --bg-body: var(--Neutral-100);
+    --bg-card: var(--Neutral-0);
+    --btn: var(--Neutral-100);
+    --text-primary: var(--Neutral-900);
+    --border-color: var(--Neutral-300);
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 16px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--Neutral-600);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    right: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--Red-400);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--Red-400);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+nav {
+    width: 500px;
+    display: inline-flex;
+    gap: 400px;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+}
+
+.box {
+    display: flex;
+    gap: 500px;
+}
+.extensions-list {
+    display: inline-flex;
+    gap: 300px;
+}
+
+.filter-buttons {
+    display: inline-flex;
+    gap: 25px;
+}
+
+#extensions-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 50px;
+}
+
+#extensions-container .extension {
+    background-color: var(--bg-card);
+    height: 200px;
+    border: 1px solid;
+    border-color: var(--border-color);
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-family: "notosansitalic";
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#extensions-container .extension .info {
+    display: flex;
+    width: 90%;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+#extensions-container .extension .info h3 {
+    /* padding: 0; */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    /* margin-left: -5px; */
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+#extensions-container .extension .info p {
+    /* padding: 0;
+    margin: 0; */
+    margin-top: -0.2rem;
+    width: 90%;
+}
+
+#extensions-container .extension .info img {
+    display: block;
+    /* padding: 0; */
+    /* margin: 0; */
+    margin-top: 0;
+    width: 80px;
+    height: 80px;
+}
+
+#extensions-container .extension .control-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#extensions-container .extension .control-btns button {
+    background-color: var(--btn);
+    color: var(--text-primary);
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 1px solid;
+    border-color: var(--Neutral-600);
+}
+
+#extensions-container .extension .control-btns label {
+    padding: 5px;
+}
