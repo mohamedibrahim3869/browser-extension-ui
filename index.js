@@ -16,4 +16,4 @@ const showExtension = () => {
 };
 
 //working with DOM
-document.addEventListener("DOMContentLoaded", showExtension());
+document.addEventListener("DOMContentLoaded", showExtension);
